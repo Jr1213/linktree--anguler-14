@@ -1,0 +1,31 @@
+<div class="wrapper">
+    <div class="card">
+        <h3>welecom back!</h3>
+        <form id="loginform" [formGroup]="loginForm" (submit)="login()">
+            <div class="message" *ngIf="error">
+                <p>email or password incorrect</p>
+            </div>
+            <label for="username" [ngClass]="{
+                'focused':usernameFoucsed == true,
+                'vaild' : loginForm.controls.email.valid && loginForm.controls.email.touched,
+                'invaild' : loginForm.controls.email.invalid && loginForm.controls.email.touched
+            }">
+                <input (focus)="usernameFoucsed = true" (blur)="usernameFoucsed = false" formControlName="email"
+                    type="text" name="username" autofocus id="username" placeholder="username">
+            </label>
+            <label [ngClass]="{
+                'focused':passwordFoucsed == true,
+                'vaild' : loginForm.controls.password.valid && loginForm.controls.password.touched,
+                'invaild' : loginForm.controls.password.invalid && loginForm.controls.password.touched
+                }" for="password">
+                <input (focus)="passwordFoucsed = true" (blur)="passwordFoucsed = false" type="password"
+                    formControlName="password" name="password" id="password" placeholder="password">
+            </label>
+        </form>
+       
+        <div class="buttons">
+            <button type="submit" form="loginform" class="btn btn-main" [disabled]="loginForm.invalid">login</button>
+            <button [routerLink]="['/auth/join']" class="btn btn-secondery">join us</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+@import './_colors';
+
+.btn {
+    font-size: 1.5rem;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    text-transform: capitalize;
+    font-weight: bold;
+    padding: 1rem 3rem;   
+    transition: ease-in-out all 250ms;
+    cursor: pointer;
+
+}
+
+.btn-secondery {
+   box-shadow: rgba($total_black,0.2) 0px 0px 18px ;
+    color: $main_color;
+    &:hover {
+        box-shadow: rgba($total_black,0.2) 0px 0px 28px ;
+    }
+}
+
+.btn-main {
+    color:$white;
+    background-color: $main_color;
+    &:hover {
+        box-shadow: rgba($total_black,0.2) 0px 0px 28px ;
+    }
+    &:disabled {
+        background-color: $main_color-d;
+        &:hover {
+           box-shadow: none; 
+        }
+    }
+}
