@@ -1,0 +1,10 @@
+@import 'src/assets/common/_auth';
+
+.message {
+    margin: 1rem;
+    p {
+        font-size: 1.5rem;
+        text-transform: capitalize;
+        color:$red
+    }
+}

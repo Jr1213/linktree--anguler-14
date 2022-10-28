@@ -1,0 +1,14 @@
+@import 'src/assets/common/_auth';
+ .message {
+    list-style: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    li {
+        margin-bottom: 10px;
+        font-size: 1.1rem;
+        text-transform: capitalize;
+        color:$red
+    }
+ }

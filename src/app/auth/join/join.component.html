@@ -1,0 +1,75 @@
+<div class="wrapper">
+    <div class="card">
+        <h3>welecom back!</h3>
+        <form id="joinForm" [formGroup]="joinForm" (submit)="createAccount()">
+            <label for="name" [ngClass]="{
+                'focused':nameFoucsed == true,
+                'vaild' : joinForm.controls.name.valid && joinForm.controls.name.touched,
+                'invaild' : joinForm.controls.name.invalid && joinForm.controls.name.touched
+            }">
+                <input (focus)="nameFoucsed = true" (blur)="nameFoucsed = false" formControlName="name"
+                    type="text" name="name" autofocus id="name" placeholder="full name">
+                </label>
+                <ul class="message" *ngIf="joinErrors.name">
+                    <li *ngFor="let error of joinErrors.name">{{error}}</li>
+                </ul>
+            <label for="email" [ngClass]="{
+                'focused':emailFoucsed == true,
+                'vaild' : joinForm.controls.email.valid && joinForm.controls.email.touched,
+                'invaild' : joinForm.controls.email.invalid && joinForm.controls.email.touched
+            }">
+                <input (focus)="emailFoucsed = true" (blur)="emailFoucsed = false" formControlName="email"
+                    type="email" name="email" autofocus id="email" placeholder="email">
+            </label>
+            <ul class="message" *ngIf="joinErrors.email">
+                <li *ngFor="let error of joinErrors.email">{{error}}</li>
+            </ul>
+            <label for="phone" [ngClass]="{
+                'focused':phoneFoucsed == true,
+                'vaild' : joinForm.controls.phone.valid && joinForm.controls.phone.touched,
+                'invaild' : joinForm.controls.phone.invalid && joinForm.controls.phone.touched
+            }">
+                <input (focus)="phoneFoucsed = true" (blur)="phoneFoucsed = false" formControlName="phone"
+                    type="tel" name="phone" autofocus id="phone" placeholder="phone">
+            </label>
+            <ul class="message" *ngIf="joinErrors.phone">
+                <li *ngFor="let error of joinErrors.phone">{{error}}</li>
+            </ul>
+            <label for="username" [ngClass]="{
+                'focused':usernameFoucsed == true,
+                'vaild' : joinForm.controls.username.valid && joinForm.controls.username.touched,
+                'invaild' : joinForm.controls.username.invalid && joinForm.controls.username.touched
+            }">
+                <input (focus)="usernameFoucsed = true" (blur)="usernameFoucsed = false" formControlName="username"
+                    type="text" name="username"  id="username" placeholder="username">
+            </label>
+            <ul class="message" *ngIf="joinErrors.username">
+                <li *ngFor="let error of joinErrors.username">{{error}}</li>
+            </ul>
+            <label [ngClass]="{
+                'focused':passwordFoucsed == true,
+                'vaild' : joinForm.controls.password.valid && joinForm.controls.password.touched,
+                'invaild' : joinForm.controls.password.invalid && joinForm.controls.password.touched
+                }" for="password">
+                <input (focus)="passwordFoucsed = true" (blur)="passwordFoucsed = false" type="password"
+                    formControlName="password" name="password" id="password" placeholder="password">
+            </label>
+            <ul class="message" *ngIf="joinErrors.password">
+                <li *ngFor="let error of joinErrors.password">{{error}}</li>
+            </ul>
+            <label [ngClass]="{
+                'focused':passwordConfirmationFoucsed == true,
+                'vaild' : joinForm.controls.password.valid && joinForm.controls.password.touched,
+                'invaild' : joinForm.controls.password.invalid && joinForm.controls.password.touched
+                }" for="password_confirmation">
+                <input (focus)="passwordConfirmationFoucsed = true" (blur)="passwordConfirmationFoucsed = false" type="password"
+                    formControlName="password_confirmation" name="password_confirmation" id="password_confirmation" placeholder="re enter password">
+            </label>
+        </form>
+       
+        <div class="buttons">
+            <button class="btn btn-main" type="submit" form="joinForm" [disabled]="joinForm.invalid">create account</button>
+            <button [routerLink]="['/auth/login']" class="btn btn-secondery">login</button>
+        </div>
+    </div>
+</div>
